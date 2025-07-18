@@ -1,0 +1,29 @@
+#minikube
+start --nodes <Nº>	
+stop
+status
+delete
+service --url <service-name>
+#kubectl
+get (pods, replicasets, deployments, namespaces, services)
+get pods -o wide --field-selector spec.nodeName=<name>
+get <resource> -n <namespace> | --namespace=<namespace> | --all-namespaces (list resources from a specific namespace) 
+get nodes -o yaml | grep address
+get nodes --show-labels
+delete (pods, replicasets, deployments, namespaces, services) <resource-name>
+delete <resource> <resource-name> --namespace=<name>
+scale (pods, replicasets, deployments) --replicas=<replicas-number>
+create -f <file-name>.yaml/yml
+create namespace <name> --save-config
+apply -f <file-name>.yaml/yml
+apply -f <manifest-file> --namespace=<name>
+rollout status deployment.apps/<deployment-name>
+rollout history deploymenet.apps/<deployment-name>
+rollout history deployment.apps/<deployment-name> --revision=<revision-number>
+rollout undo deployment.apps/<deployment-name>  (Rollback)
+rollout undo deployment.apps/<deployment-name> --to-revision=<revision-number>
+rollout pause deployment.apps/<deployment-name>
+rollout resume deployment.apps/<deployment-name>
+describe deployment.apps/<deployment-name>
+config set-context --current --namespace=<name>
+label nodes <node-name> <label=value>
