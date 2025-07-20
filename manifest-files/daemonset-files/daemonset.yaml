@@ -6,6 +6,10 @@ metadata:
     app: frontend
 
 spec:
+  updateStrategy:
+    type: RollingUpdate #OnDelete
+    rollingUpdate:
+      maxUnavailable: 2
   template:
     metadata:
       name: my-pod-webserver

@@ -5,11 +5,13 @@ status
 delete
 service --url <service-name>
 #kubectl
-get (pods, replicasets, deployments, namespaces, services)
+get (pods, replicasets, deployments, namespaces, services, daemonsets, nodes)
 get pods -o wide --field-selector spec.nodeName=<name>
 get <resource> -n <namespace> | --namespace=<namespace> | --all-namespaces (list resources from a specific namespace) 
 get nodes -o yaml | grep address
 get nodes --show-labels
+get ds/my-daemonset -o go-template='{{.spec.updateStrategy.type}}{{"\n"}}' -n=<namespace> 
+get job <job-name> --output yaml | grep type or reason
 delete (pods, replicasets, deployments, namespaces, services) <resource-name>
 delete <resource> <resource-name> --namespace=<name>
 scale (pods, replicasets, deployments) --replicas=<replicas-number>
